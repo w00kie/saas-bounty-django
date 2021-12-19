@@ -1,0 +1,6 @@
+django
+djangorestframework
+django-environ
+stellar-sdk
+black
+django-sslserver
