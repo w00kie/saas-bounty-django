@@ -47,6 +47,8 @@ frozenlist==1.2.0
     # via
     #   aiohttp
     #   aiosignal
+gunicorn==20.1.0
+    # via -r requirements.in
 idna==3.3
     # via
     #   requests
@@ -102,3 +104,6 @@ yarl==1.7.2
     # via
     #   aiohttp
     #   aiohttp-sse-client
+
+# The following packages are considered to be unsafe in a requirements file:
+# setuptools

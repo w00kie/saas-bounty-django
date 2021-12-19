@@ -4,3 +4,4 @@ django-environ
 stellar-sdk
 black
 django-sslserver
+gunicorn
