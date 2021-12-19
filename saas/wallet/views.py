@@ -39,7 +39,6 @@ def register(request):
                 password=serializer.data.get("password"),
             )
             return Response(
-                data={"message": "Succesfully created account."},
                 status=status.HTTP_204_NO_CONTENT,
             )
         except IntegrityError as e:
@@ -135,7 +134,6 @@ def pay(request):
                 request.user.account.save()
 
                 return Response(
-                    data={"message": "Payment successful."},
                     status=status.HTTP_204_NO_CONTENT,
                 )
         except NotFoundError:
