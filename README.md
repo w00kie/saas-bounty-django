@@ -9,6 +9,7 @@ Implements the [Stellar Account as a Service bounty](https://github.com/tyvdh/st
 - `ENABLE_SEP_0023=True`: mandatory for Stellar SDK support of muxed accounts
 - `DEBUG`: defaults to False
 - `ALLOWED_HOSTS`: defaults to localhost
+- `STATIC_ROOT`: static folder when running in prod
 - `DJANGO_SECRET_KEY`: mandatory
 - `STELLAR_SERVER`: defaults to https://horizon-testnet.stellar.org
 - `VAULT_PUBLIC_KEY`: mandatory
