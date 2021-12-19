@@ -10,6 +10,7 @@ from rest_framework.response import Response
 from rest_framework.authtoken.models import Token
 from django.contrib.auth import get_user_model, authenticate
 from django.db import IntegrityError
+from django.db.models import F
 from django.conf import settings
 from stellar_sdk import Server, TransactionBuilder, Keypair, Asset
 from stellar_sdk.exceptions import NotFoundError
@@ -128,7 +129,9 @@ def pay(request):
                 server.submit_transaction(tx)
 
                 # If transaction successful, decrease user balance
-                request.user.account.balance -= serializer.data.get("amount")
+                request.user.account.balance = F("balance") - serializer.data.get(
+                    "amount"
+                )
                 request.user.account.save()
 
                 return Response(

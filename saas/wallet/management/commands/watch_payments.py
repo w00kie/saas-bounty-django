@@ -1,6 +1,7 @@
 from django.core.management.base import BaseCommand
 from django.conf import settings
 from django.contrib.auth import get_user_model
+from django.db.models import F
 from stellar_sdk import Server
 from decimal import Decimal
 
@@ -28,7 +29,7 @@ class Command(BaseCommand):
                 return None
 
             user = user_model.objects.get(id=to_muxed_id)
-            user.account.balance += Decimal(amount)
+            user.account.balance = F("balance") + Decimal(amount)
             user.account.save()
 
             self.stdout.write(
